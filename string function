@@ -1,0 +1,58 @@
+import java.util.Scanner;
+public class exp_3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string: ");
+        String str = sc.nextLine();
+        System.out.println("enter the function you want to do on string");
+        System.out.println("1-counting no of vowel and constant\n"
+        		+ " 2- replace space with specific character\n"
+        		+ " 3- convert the string into lower and uppercase"
+        		+ " 4- reverse the string entered using stringbuffer"
+        		+ " 5- reverse the string using string builder");
+        
+     int choice= sc.nextInt();
+     switch(choice) {
+     case 1:
+         int vowels = 0, consonants = 0;
+         String lowerStr = str.toLowerCase();
+         for (int i = 0; i < lowerStr.length(); i++) {
+             char ch = lowerStr.charAt(i);
+             if (ch >= 'a' && ch <= 'z') {
+                 if (ch == 'a' || ch == 'e' || ch == 'i' || 
+                     ch == 'o' || ch == 'u') {
+                     vowels++;
+                 } else {
+                     consonants++;
+                 }
+             }
+         }
+         System.out.println("Number of vowels: " + vowels);
+         System.out.println("Number of consonants: " + consonants);
+         break;
+         
+     case 2:
+    	 System.out.print("Enter a character to replace spaces: ");
+         char replaceChar = sc.next().charAt(0);
+         String replacedString = str.replace(' ', replaceChar);
+         System.out.println("String after replacing spaces: " + replacedString);
+         break;
+         
+     case 3:
+         System.out.println("Uppercase: " + str.toUpperCase());
+         System.out.println("Lowercase: " + str.toLowerCase());
+         break;
+     
+     case 4:
+         StringBuffer sb = new StringBuffer(str);
+         sb.reverse();
+         System.out.println("Reversed string using StringBuffer: " + sb);
+         break;
+       
+     case 5:
+         StringBuilder sb2 = new StringBuilder(str);
+         sb2.reverse();
+         System.out.println("Reversed string using StringBuilder: " + sb2);
+         break;
+
+     }
